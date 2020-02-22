@@ -1,0 +1,965 @@
+package vjit;
+
+import java.util.*;
+
+public class MyString {
+	
+	Scanner s =new Scanner(System.in);
+	
+	String name=s.nextLine();	
+	int N=name.length();
+	char array[]= new char[N];
+	char array1[]=new char[N];
+	char array2[]=new char[N];
+	int i,j;
+	
+	void concate()
+	{
+		
+		String concatedstring=name+name;
+		System.out.println("concatedstring="+concatedstring);
+	}
+	void oddPos()
+	{
+		for(int z=0,j=1,i=0;z<N;z++)
+		{
+		while(i<N)
+		{
+			array[i]='#';
+			i=i+2;
+			break;
+		}
+		while(j<N)
+		{
+			array[j]=name.charAt(j);
+			j=j+2;
+			break;
+		}
+			
+			
+			
+	}
+		for(int k=0;k<N;k++)
+		{
+			System.out.print(array[k]);
+		
+		}	
+		
+		
+		
+		
+	}
+
+	void removeDuplicate()
+	{
+		int m=1;
+		array1[0]=name.charAt(0);
+		
+		for(i=1;i<N;i++)
+		{
+			j=0;
+			int count=0;
+			while(j<i)
+			{
+				if(name.charAt(i)!=name.charAt(j))
+				{
+					count++;
+					
+				}
+				j++;
+			}
+			if(count==i)
+			{
+				array1[m]=name.charAt(i);
+				m++;
+			}
+			}
+		for(int k=0;k<N;k++)
+		{
+			System.out.print(array1[k]);
+		
+		}	
+		
+	}
+	    void upperCase()
+	    {
+	    	for(i=0;i<N;i++)
+	    	{
+	    		if(i%2==0)
+	    		{
+	    			array2[i]=(char)(name.charAt(i)-32);
+	    		}
+	    		else
+	    		{
+	    			array2[i]=name.charAt(i);
+	    		}
+	    	}
+	    	for(int k=0;k<N;k++)
+			{
+				System.out.print(array2[k]);
+			
+			}	
+	    }
+
+	public static void main(String[] args) {
+		
+		System.out.println("enter the string");
+		MyString obj=new MyString();
+	
+		obj.concate();
+		obj.oddPos();
+		obj.removeDuplicate();
+		obj.upperCase();
+	}
+
+}
+====================================================================================================================================================================
+package vjit;
+
+import java.util.Scanner;
+
+public class PositiveString {
+	
+	
+Scanner s =new Scanner(System.in);
+	String name=s.nextLine();
+	int N=name.length();
+	int i=0;
+	int j=1;
+	
+	
+	public void pos()
+	{
+		int count=0;
+		while(i<N-1)
+		{
+		if((name.charAt(i))<(name.charAt(j)))
+		{
+			count++;
+			
+		}
+		i++;
+		j++;
+		}
+		
+		if(count==N-1)
+		{
+			System.out.println("true");
+			
+			
+		}
+		else
+		{
+			System.out.println("false");
+	     }
+		
+			
+		
+		
+	}
+
+	public static void main(String[] args) {
+		int p;
+		
+		PositiveString obj=new PositiveString();
+		obj.pos();
+		
+		
+		
+	}
+
+}
+============================================================================================
+package vjit;
+import java.util.*;
+import java.text.ParseException;
+//import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
+
+
+public class DateDuration  {
+
+	public static void main(String[] args) throws ParseException {
+		DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		Scanner scan=new Scanner(System.in);
+		String dateBeforeString =scan. nextLine();
+		LocalDate lt=LocalDate. parse(dateBeforeString,myFormat);
+		 LocalDate now = LocalDate.now();
+         Period diff = Period.between(lt,now );
+         System.out.printf("\nDifference is %d years, %d months and %d days old\n\n", 
+                 diff.getYears(), diff.getMonths(), diff.getDays());
+	}
+		
+
+}
+======================================================================================
+package vjit;
+import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
+public class DateDuration1 {
+
+	public static void main(String[] args)throws ParseException {
+		
+		DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		Scanner scan=new Scanner(System.in);
+		String dateBeforeString =scan. nextLine();
+		System.out.println(dateBeforeString);
+		LocalDate lt=LocalDate. parse(dateBeforeString,myFormat);
+		System.out.println(lt);
+		 //LocalDate now = LocalDate.now();
+		String dateAfterString =scan. nextLine();
+		LocalDate lt1=LocalDate. parse(dateAfterString,myFormat);
+         Period diff = Period.between(lt,lt1 );
+         System.out.printf("\nDifference is %d years, %d months and %d days old\n\n", 
+                 diff.getYears(), diff.getMonths(), diff.getDays());
+
+	}
+
+}
+================================================================================
+package vjit;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Warrantee {
+
+	public static void main(String[] args) {
+		DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		Scanner scan=new Scanner(System.in);
+		String mydate =scan. nextLine();
+		LocalDate lt=LocalDate. parse(mydate,myFormat);
+		System.out.println("enter warrantee months");
+		int months =scan. nextInt();
+		 int days1=months*30;
+		System.out.println("enter  warrantee years ");
+		int years =scan. nextInt();
+		int days2=years*365;
+		int total = (days1+days2);
+		LocalDate expirydate= lt.plusDays(total);
+		System.out.println("expiry date= " +expirydate);
+		
+				
+		
+		
+
+	}
+
+}
+=================================================================
+package vjit;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Age {
+	 static String firstName,lastName;
+	void calculateAge()
+	{
+		
+	DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	Scanner scan=new Scanner(System.in);
+	String dob =scan. nextLine();
+	LocalDate lt=LocalDate. parse(dob,myFormat);
+	LocalDate now = LocalDate.now();
+    Period diff = Period.between(lt,now );
+   System.out.printf(" Age is %d years",diff.getYears());
+  // System.out.printf("\nDifference is %d years, %d months and %d days old\n\n", 
+           //diff.getYears(), diff.getMonths(), diff.getDays());
+   System.out.println("\n");
+	}
+   public String getFullName(String firstName, String lastName)
+	{
+    	String fullname;
+		
+		fullname=firstName+lastName;
+		
+		
+		return fullname;
+		
+		
+		
+	}
+
+	public static void main(String[] args) {
+		System.out.println("enter dob");
+		Age a =new Age();
+		a.calculateAge();
+		String f=a.getFullName("","");
+		System.out.println("fullname="+f);
+		
+		try
+		{
+			if(f.equals(""))
+			{
+				System.out.println("Starting of try block");
+				// I'm throwing the custom exception using throw
+				throw new MyException("custom exception");
+			}
+			
+		}
+		catch(Exception exp)
+		{
+			
+			System.out.println("Catch Block") ;
+			System.out.println(exp) ;
+		}
+	}
+
+}
+==========================================================================
+package vjit;
+//4.1
+public class Account1 extends Person {
+	long accNum;
+	double balance;
+	String accHolder;
+	
+	public long getAccNum() {
+		return accNum;
+	}
+     public void setAccNum(long accNum) {
+		this.accNum = accNum;
+	}
+
+    
+
+    public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+    public String getAccHolder() {
+		return accHolder;
+	}
+
+public void setAccHolder(String accHolder) {
+		this.accHolder = accHolder;
+	}
+
+public void deposit(double amount)
+{
+	 balance=balance+amount;
+	 //System.out.println("updated balance after depositing="+balance);
+}
+
+public void withdraw(double withdrawamount)
+{
+	 if(balance>2000)
+	 {
+		 double balance1=balance-withdrawamount;
+	      
+	       if(balance1<500)
+	       {
+	    	   System.out.println("insufficient funds");
+	    	   
+	    	   
+	       }
+	       else
+	       {    balance=balance1;
+	    	  // System.out.println("updated balance after withdrawing="+balance);
+	       }
+	
+	 
+	 }
+	  
+	 else {
+		 System.out.println("cannot withdraw as balance is less than minimum bal 2000");
+	 
+	 }
+	
+}
+
+
+public double getBalance() {
+		return balance;
+	}
+
+
+public String toString()
+{
+	return getAccHolder()+" "+getBalance()+" "+getAccNum();
+}
+
+
+//public static void main(String[] args) {
+		
+      // Person1 p=new Person1();
+     //  Person1 p1=new Person1();
+      // p.setName("smith");
+     //  p1.setName("kyath");
+     //  Account1 a1=new Account1();
+      // Account1 a2=new Account1();
+      // a1.setAccNum(100);
+     //  a1.setBalance(2000);
+     //  a1.deposit(2000);
+     //  a1.setAccHolder(p.name);
+     //
+       //a1.withdraw(1600);
+     // System.out.println(a1.toString());
+    //  System.out.println(a1.getBalance());
+     // a2.setAccNum(200);
+     // a2.setBalance(3000);
+     // a2.deposit(0);
+    //  a2.setAccHolder(p1.name);
+     // a2.withdraw(2000);
+    // System.out.println(a2.toString());
+	//}
+
+}
+
+
+
+
+//4.1
+package vjit;
+
+public class Person {
+
+		String firstName;
+		String lastName;
+		char gender;
+		int age;
+		double weight;
+		int phoneNumber;		
+		
+		Person()
+		{
+			firstName = "vinitha";
+			lastName = "reddy";
+			gender='F';
+			age=18;
+			weight=85.5;
+			phoneNumber = 12345;
+		}
+		Person(String firstName, String lastName, char gender, int age, double weight, int phoneNumber)
+		{
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.gender = gender;
+			this.age = age;
+			this.weight = weight;
+			this.phoneNumber=phoneNumber;
+		}
+		
+	    public String getFirstName() {
+			return firstName;
+		}
+		public void setFirstName(String firstName) {
+			this.firstName = firstName;
+		}
+		public String getLastName() {
+			return lastName;
+		}
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
+		public char getGender() {
+			return gender;
+		}
+		public void setGender(char gender) {
+			this.gender = gender;
+		}
+		public int getAge() {
+			return age;
+		}
+		public void setAge(int age) {
+			this.age = age;
+		}
+		public double getWeight() {
+			return weight;
+		}
+		public void setWeight(double weight) {
+			this.weight = weight;
+		}
+		public int getPhoneNumber() {
+			return phoneNumber;
+		}
+		public void setPhoneNumber(int phoneNumber) {
+			this.phoneNumber = phoneNumber;
+		}
+}
+
+
+
+
+package vjit;
+
+public class PersonMain {
+
+	public static void main(String[] args) {
+		Person p1=new Person();
+		System.out.println("person p1 details");
+		System.out.println("----------------");
+		System.out.println("FirstName :"+p1.getFirstName());
+		System.out.println("LatstName :"+p1.getLastName());
+		System.out.println("gender :"+p1.getGender());
+		System.out.println("age :"+p1.getAge());
+		System.out.println("weight :"+p1.getWeight());
+		System.out.println("phoneNumber :"+p1.getPhoneNumber());
+		
+		
+		Person p2=new Person("sindhuja","vembadi",'F',18,40.2,3456678);
+		System.out.println("person p2 details");
+		System.out.println("----------------");
+		System.out.println("FirstName :"+p2.getFirstName());
+		System.out.println("LatstName :"+p2.getLastName());
+		System.out.println("gender :"+p2.getGender());
+		System.out.println("age :"+p1.getAge());
+		System.out.println("weight :"+p1.getWeight());
+		System.out.println("phoneNumber :"+p1.getPhoneNumber());
+	}
+
+}
+========================================================================================
+package vjit;
+
+public class SavingsAccount extends Account1 {
+
+	final double minimum_balance=500;
+	
+	public void withdraw(double withdrawamount)
+	{
+		 System.out.println(balance);
+		if(balance>minimum_balance)
+			 {
+				 double balance1=balance-withdrawamount;
+			      
+			          if(balance1<500)
+			              {
+			    	            System.out.println("insufficient funds to withdraw");
+			               }
+			       else
+			       {    balance=balance1;
+			    	  System.out.println("updated balance after withdrawing="+balance);
+			       }
+			
+			 
+			 }
+			  
+			 else {
+				 System.out.println("cannot withdraw as balance is less than 500");
+			 
+			 }
+			
+		}
+	
+	public static void main(String[] args) {
+		
+		//CurrentAccount c=new CurrentAccount();
+		//c.withdraw(500);
+		 SavingsAccount s=new SavingsAccount();
+	       
+		
+		 s.setAccNum(100);
+	       s.setBalance(2000);
+	       s.deposit(2000);
+	        s.setAccHolder("smith");
+	        
+	      // Account1 a1= new SavingsAccount();
+	      // a1.withdraw(200);
+	       s.withdraw(400);
+	      
+	       
+	     
+	     //System.out.println(a1.toString());
+	      
+		
+	}
+	
+	
+	}
+	
+
+
+
+package vjit;
+
+public class CurrentAccount extends Account1 {
+
+	double overdraft_limit=500;
+	public void withdraw(double withdrawamount)
+	
+	{
+		
+		 System.out.println(balance);
+		if(withdrawamount>balance)
+		{
+			double balance1=balance+500-withdrawamount;
+			if(balance1>0)
+			{
+				System.out.println("overdraft limit is reached");
+				System.out.println("false");
+				
+				
+			}
+			else
+			{
+			//System.out.println("overdraft limit is not reached");
+			System.out.println("true");
+			}
+			
+		}
+		else
+		{
+			System.out.println("overdraft is not taken");
+		}
+		
+	}
+public static void main(String[] args) {
+		
+		//CurrentAccount c=new CurrentAccount();
+		//c.withdraw(500);
+		 CurrentAccount c=new CurrentAccount();
+	       
+		
+		 c.setAccNum(100);
+	       c.setBalance(2000);
+	       c.deposit(2000);
+	        c.setAccHolder("smith");
+	        
+	      // Account1 a1= new SavingsAccount();
+	      // a1.withdraw(200);
+	       c.withdraw(400);
+	      
+	       
+	     
+	     //System.out.println(a1.toString());
+	      
+	
+}
+}
+======================================================================================
+package com.cg.eis.pl;
+
+import java.util.Scanner;
+
+import com.cg.eis.bean.Employee;
+ 
+public class Details extends Employee {
+	 String insuranceScheme;
+	void insurance(double salary,String designation)
+
+	{
+		if(salary>5000 && salary<20000 && designation=="system_associate")
+			System.out.println("Scheme c");
+	     
+		else if(salary>=20000 && salary<=40000&&designation=="programmer")
+			System.out.println("scheme b");
+		else if(salary>4000 && designation=="manager")
+			System.out.println("scheme a");
+		else if(salary<5000 && designation=="clerk")
+ insuranceScheme="no scheme";
+		
+		System.out.println(" no scheme");
+		//return  insuranceScheme;
+	
+	}
+	public static void main(String[] args) {
+		Details d=new Details();
+   Scanner sc=new Scanner(System.in);
+   System.out.println("enter id");
+      int id=sc.nextInt();
+      System.out.println("enter name");
+      String name=sc.next();
+      System.out.println("enter salary");
+      double salary=sc.nextDouble();
+      System.out.println("enter designation");
+      String designation=sc.next();
+     
+      //System.out.println("enter insuranceScheme");
+     // String insuranceScheme=sc.next();
+      System.out.println(id);
+      System.out.println(name);
+      System.out.println(salary);
+      System.out.println(designation);
+      //System.out.println(i);
+      d.insurance(salary,designation);
+      
+      
+	}
+
+}
+============================================================================================================
+package vjit;
+
+public abstract class Account1modify {
+	public abstract void withdraw(double withdrawamount);
+
+}
+
+
+
+
+
+package vjit;
+
+public class AccountExttension5_3 extends Account1modify{
+	long accNum;
+	double balance;
+	String accHolder;
+	
+	public long getAccNum() {
+		return accNum;
+	}
+     public void setAccNum(long accNum) {
+		this.accNum = accNum;
+	}
+
+    
+
+    public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+    public String getAccHolder() {
+		return accHolder;
+	}
+
+public void setAccHolder(String accHolder) {
+		this.accHolder = accHolder;
+	}
+
+public void deposit(double amount)
+{
+	 balance=balance+amount;
+	 //System.out.println("updated balance after depositing="+balance);
+}
+	public void withdraw(double withdrawamount)
+	{
+		 if(balance>2000)
+		 {
+			 double balance1=balance-withdrawamount;
+		      
+		       if(balance1<500)
+		       {
+		    	   System.out.println("insufficient funds");
+		    	   
+		    	   
+		       }
+		       else
+		       {    balance=balance1;
+		    	  // System.out.println("updated balance after withdrawing="+balance);
+		       }
+		
+		 
+		 }
+		  
+		 else {
+			 System.out.println("cannot withdraw as balance is less than minimum bal 2000");
+		 
+		 }
+		
+	}
+
+
+	public double getBalance() {
+			return balance;
+		}
+
+
+	public String toString()
+	{
+		return getAccHolder()+" "+getBalance()+" "+getAccNum();
+	}
+
+
+
+public static void main(String[] args) {
+	
+     Person1 p=new Person1();
+     Person1 p1=new Person1();
+     p.setName("smith");
+     p1.setName("kyath");
+     AccountExttension5_3 a1=new AccountExttension5_3();
+     AccountExttension5_3 a2=new AccountExttension5_3();
+     a1.setAccNum(100);
+     a1.setBalance(2000);
+     a1.deposit(2000);
+     a1.setAccHolder(p.name);
+   
+     a1.withdraw(1600);
+    System.out.println(a1.toString());
+    System.out.println(a1.getBalance());
+    a2.setAccNum(200);
+    a2.setBalance(3000);
+    a2.deposit(0);
+    a2.setAccHolder(p1.name);
+    a2.withdraw(2000);
+   System.out.println(a2.toString());
+	}
+}
+
+============================================================================================
+
+
+
+	package vjit;
+//fullname exception 6.1
+public class Example1 extends Age {
+
+	public static void main(String[] args) {
+		
+	Example1 e=new Example1();
+		String f=e.getFullName("","");
+		System.out.println(f);
+	
+		
+		try{
+			if(f.equals(""))
+			{
+			System.out.println("Starting of try block");
+			// I'm throwing the custom exception using throw
+			throw new MyException("This is My error Message");
+		       }
+		}
+		catch(MyException exp){
+			System.out.println("Catch Block") ;
+			System.out.println(exp) ;
+		      }
+	}
+
+}
+
+
+package vjit;
+//6.1
+
+public class MyException extends Exception {
+	
+	  String str1;
+	   /* Constructor of custom exception class
+	    * here I am copying the message that we are passing while
+	    * throwing the exception to a string and then displaying 
+	    * that string along with the message.
+	    */
+	   MyException(String str2) {
+		str1=str2;
+	   }
+	   public String toString(){ 
+		return ("MyException Occurred: "+str1) ;
+	   }
+}
+===============================================================================================================
+
+package vjit;
+//age exception 6.2
+public class Example2 extends Person1 {
+
+	public static void main(String[] args) {
+		Person1 p1=new Person1();
+		p1.setAge(25);
+		System.out.println(p1.getAge());
+		try {
+			if(p1.getAge()<15)
+			{
+				System.out.println("try block");
+				throw new MyException1("custom exception");
+			}
+		  }
+		catch(Exception e)
+		{
+			System.out.println("catch block");
+			System.out.println(e);
+		}
+	}
+
+}
+
+
+
+package vjit;
+//6.2
+
+public class MyException1 extends Exception{
+
+	String str1;
+	MyException1(String str2)
+	{
+		this.str1=str2;
+	}
+	public String toString() {
+		return ("MyException Occurred: "+str1) ;
+	}
+}
+==================================================================================================
+package com.cg.eis.exception;
+
+public class EmployeeException extends Exception {
+
+	String str1;
+	public EmployeeException(String str2)
+	{
+		this.str1=str2;
+	}
+	public String toString() {
+		return ("MyException Occurred: "+str1) ;
+	}
+}
+
+
+
+package com.cg.eis.service;
+//modification of 6.3
+import java.util.Scanner;
+
+import com.cg.eis.exception.EmployeeException;
+
+import vjit.MyException;
+
+ interface EmployeeService {
+
+	abstract void insurance(int sal);
+}
+
+public class Service implements EmployeeService {
+	
+	
+	public void insurance(int sal) {
+		
+		if(sal>5000&&sal<20000)
+			System.out.println("Scheme c");
+		else if(sal>=20000&&sal<=40000)
+			System.out.println("scheme b");
+		else if(sal>4000)
+			System.out.println("scheme a");
+		else if(sal<5000)
+		System.out.println(" no scheme");
+	
+	}
+		public static void main(String[] args) 
+		{
+			// TODO Auto-generated method stub
+	    Scanner s=new Scanner(System.in);
+	    int sal=s.nextInt();
+	    Service a=new Service();
+	     a.insurance(sal);
+	     try
+	     {
+	    	 if(sal<3000)
+	    	 {
+	    		 System.out.println("try block");
+	    		 throw new EmployeeException("This is My error Message");
+	    	 }
+	     }
+	     catch(Exception e)
+			{
+				System.out.println("catch block");
+				System.out.println(e);
+			}
+		}
+		
+	}
+
+
+==========================================================================================
